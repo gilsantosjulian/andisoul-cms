@@ -121,7 +121,16 @@ coverage
 # Strapi
 ############################
 
+# Environment files - NEVER commit secrets!
 .env
+.env.local
+.env.staging
+.env.production
+.env*.local
+
+# Keep template file
+!.env.example
+
 license.txt
 exports
 .strapi

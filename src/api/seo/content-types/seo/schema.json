@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "seos",
+  "info": {
+    "singularName": "seo",
+    "pluralName": "seos",
+    "displayName": "SEO"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "entryTitle": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "metaTitle": {
+      "type": "string",
+      "maxLength": 60,
+      "required": true
+    },
+    "metaDescription": {
+      "type": "text",
+      "maxLength": 160
+    },
+    "keywords": {
+      "type": "string"
+    },
+    "canonicalUrl": {
+      "type": "string"
+    },
+    "ogTitle": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "ogDescription": {
+      "type": "text",
+      "maxLength": 160
+    },
+    "ogImage": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::media-asset.media-asset"
+    }
+  }
+}

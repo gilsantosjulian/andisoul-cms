@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "creative_content_panels",
+  "info": {
+    "singularName": "creative-content-panel",
+    "pluralName": "creative-content-panels",
+    "displayName": "Creative Content Panel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "entryTitle": {
+      "type": "string",
+      "required": true
+    },
+    "eyebrow": {
+      "type": "string"
+    },
+    "headline": {
+      "type": "string",
+      "required": true
+    },
+    "subhead": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "media": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::media-asset.media-asset"
+    },
+    "Link": {
+      "type": "component",
+      "component": "common.link",
+      "repeatable": true
+    },
+    "contentOrientation": {
+      "type": "enumeration",
+      "default": "content-center",
+      "enum": [
+        "content-left",
+        "content-center",
+        "content-right"
+      ]
+    },
+    "textColor": {
+      "type": "enumeration",
+      "default": "white",
+      "enum": [
+        "white",
+        "dark"
+      ]
+    },
+    "objectFit": {
+      "type": "enumeration",
+      "default": "cover",
+      "enum": [
+        "cover",
+        "contain"
+      ]
+    }
+  }
+}

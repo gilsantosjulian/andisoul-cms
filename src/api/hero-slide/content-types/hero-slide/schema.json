@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hero_slides",
+  "info": {
+    "singularName": "hero-slide",
+    "pluralName": "hero-slides",
+    "displayName": "Hero Slide"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "entryTitle": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "media": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::media-asset.media-asset"
+    },
+    "cta": {
+      "type": "component",
+      "component": "common.link",
+      "repeatable": true
+    },
+    "overlayEnabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "overlayOpacity": {
+      "type": "decimal",
+      "min": 0,
+      "max": 1
+    },
+    "overlayColor": {
+      "type": "enumeration",
+      "enum": [
+        "black",
+        "white"
+      ]
+    },
+    "contentAlignment": {
+      "type": "enumeration",
+      "default": "center",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
+    }
+  }
+}

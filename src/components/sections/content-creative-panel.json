@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sections_content_creative_panels",
+  "info": {
+    "displayName": "Content Creative Panel"
+  },
+  "options": {},
+  "attributes": {
+    "entryTitle": {
+      "type": "string",
+      "required": true
+    },
+    "creative_content_panel": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::creative-content-panel.creative-content-panel"
+    }
+  },
+  "config": {}
+}

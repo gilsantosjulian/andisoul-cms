@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_common_links",
+  "info": {
+    "displayName": "Link",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "entryTitle": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "variant": {
+      "type": "enumeration",
+      "default": "primary",
+      "enum": [
+        "primary",
+        "secondary",
+        "outline"
+      ]
+    },
+    "target": {
+      "type": "enumeration",
+      "default": "_self",
+      "enum": [
+        "_self",
+        "_blank"
+      ]
+    }
+  },
+  "config": {}
+}

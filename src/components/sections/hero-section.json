@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_sections_hero_sections",
+  "info": {
+    "displayName": "Hero Section"
+  },
+  "options": {},
+  "attributes": {
+    "entryTitle": {
+      "type": "string",
+      "required": true
+    },
+    "slides": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::hero-slide.hero-slide"
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": true
+    },
+    "autoplayDelay": {
+      "type": "integer",
+      "default": 5000,
+      "min": 1000,
+      "max": 10000
+    },
+    "loop": {
+      "type": "boolean",
+      "default": true
+    },
+    "showNavigation": {
+      "type": "boolean",
+      "default": true
+    },
+    "showPagination": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}

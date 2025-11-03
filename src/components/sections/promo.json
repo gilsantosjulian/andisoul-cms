@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_sections_promos",
+  "info": {
+    "displayName": "Promo"
+  },
+  "options": {},
+  "attributes": {
+    "entryTitle": {
+      "type": "string",
+      "required": true
+    },
+    "headline": {
+      "type": "string",
+      "required": true
+    },
+    "subheadline": {
+      "type": "string"
+    },
+    "media": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::media-asset.media-asset"
+    },
+    "cta": {
+      "type": "component",
+      "component": "common.link",
+      "repeatable": false
+    },
+    "overlayEnabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "overlayOpacity": {
+      "type": "decimal",
+      "default": 0.3,
+      "min": 0,
+      "max": 1
+    },
+    "overlayColor": {
+      "type": "enumeration",
+      "default": "black",
+      "enum": [
+        "black",
+        "white"
+      ]
+    }
+  },
+  "config": {}
+}
