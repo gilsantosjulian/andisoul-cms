@@ -1,22 +1,5 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface CommonLink extends Struct.ComponentSchema {
-  collectionName: 'components_common_links';
-  info: {
-    displayName: 'Link';
-    icon: 'link';
-  };
-  attributes: {
-    entryTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    target: Schema.Attribute.Enumeration<['_self', '_blank']> &
-      Schema.Attribute.DefaultTo<'_self'>;
-    text: Schema.Attribute.String & Schema.Attribute.Required;
-    url: Schema.Attribute.String & Schema.Attribute.Required;
-    variant: Schema.Attribute.Enumeration<['primary', 'secondary', 'outline']> &
-      Schema.Attribute.DefaultTo<'primary'>;
-  };
-}
-
 export interface SectionsCategories extends Struct.ComponentSchema {
   collectionName: 'components_sections_categories';
   info: {
@@ -36,6 +19,8 @@ export interface SectionsCategories extends Struct.ComponentSchema {
       > &
       Schema.Attribute.DefaultTo<6>;
     subheadline: Schema.Attribute.String;
+    titleAlignment: Schema.Attribute.Enumeration<['left', 'center', 'right']>;
+    viewAllCta: Schema.Attribute.Relation<'oneToOne', 'api::cta.cta'>;
   };
 }
 
@@ -59,7 +44,6 @@ export interface SectionsFeaturedProducts extends Struct.ComponentSchema {
     displayName: 'Featured Products';
   };
   attributes: {
-    cta: Schema.Attribute.Component<'common.link', true>;
     entryTitle: Schema.Attribute.String & Schema.Attribute.Required;
     limit: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
@@ -72,6 +56,7 @@ export interface SectionsFeaturedProducts extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<4>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    titleAlignment: Schema.Attribute.Enumeration<['left', 'center', 'right']>;
     viewAllText: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'View all products'>;
     viewAllUrl: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/store'>;
@@ -111,7 +96,6 @@ export interface SectionsPromo extends Struct.ComponentSchema {
     displayName: 'Promo';
   };
   attributes: {
-    cta: Schema.Attribute.Component<'common.link', false>;
     entryTitle: Schema.Attribute.String & Schema.Attribute.Required;
     headline: Schema.Attribute.String & Schema.Attribute.Required;
     media: Schema.Attribute.Relation<
@@ -137,7 +121,6 @@ export interface SectionsPromo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'common.link': CommonLink;
       'sections.categories': SectionsCategories;
       'sections.content-creative-panel': SectionsContentCreativePanel;
       'sections.featured-products': SectionsFeaturedProducts;

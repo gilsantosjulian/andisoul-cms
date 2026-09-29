@@ -33,11 +33,6 @@
       "relation": "oneToOne",
       "target": "api::media-asset.media-asset"
     },
-    "Link": {
-      "type": "component",
-      "component": "common.link",
-      "repeatable": true
-    },
     "contentOrientation": {
       "type": "enumeration",
       "default": "content-center",

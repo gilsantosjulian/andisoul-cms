@@ -453,7 +453,6 @@ export interface ApiCreativeContentPanelCreativeContentPanel
     entryTitle: Schema.Attribute.String & Schema.Attribute.Required;
     eyebrow: Schema.Attribute.String;
     headline: Schema.Attribute.String & Schema.Attribute.Required;
-    Link: Schema.Attribute.Component<'common.link', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -476,6 +475,39 @@ export interface ApiCreativeContentPanelCreativeContentPanel
   };
 }
 
+export interface ApiCtaCta extends Struct.CollectionTypeSchema {
+  collectionName: 'ctas';
+  info: {
+    displayName: 'CTA';
+    pluralName: 'ctas';
+    singularName: 'cta';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    entryTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::cta.cta'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    target: Schema.Attribute.Enumeration<['_self', '_blank']> &
+      Schema.Attribute.DefaultTo<'_self'>;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+    variant: Schema.Attribute.Enumeration<['primary', 'secondary', 'outline']> &
+      Schema.Attribute.DefaultTo<'primary'>;
+  };
+}
+
 export interface ApiHeroSlideHeroSlide extends Struct.CollectionTypeSchema {
   collectionName: 'hero_slides';
   info: {
@@ -494,7 +526,7 @@ export interface ApiHeroSlideHeroSlide extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    cta: Schema.Attribute.Component<'common.link', true>;
+    ctas: Schema.Attribute.Relation<'oneToMany', 'api::cta.cta'>;
     description: Schema.Attribute.Blocks;
     entryTitle: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1164,6 +1196,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::creative-content-panel.creative-content-panel': ApiCreativeContentPanelCreativeContentPanel;
+      'api::cta.cta': ApiCtaCta;
       'api::hero-slide.hero-slide': ApiHeroSlideHeroSlide;
       'api::media-asset.media-asset': ApiMediaAssetMediaAsset;
       'api::page.page': ApiPagePage;

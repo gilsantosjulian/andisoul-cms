@@ -18,6 +18,19 @@
       "default": 6,
       "min": 1,
       "max": 12
+    },
+    "titleAlignment": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
+    },
+    "viewAllCta": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cta.cta"
     }
   },
   "config": {}

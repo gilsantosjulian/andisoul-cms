@@ -21,11 +21,6 @@
       "relation": "oneToOne",
       "target": "api::media-asset.media-asset"
     },
-    "cta": {
-      "type": "component",
-      "component": "common.link",
-      "repeatable": false
-    },
     "overlayEnabled": {
       "type": "boolean",
       "default": true

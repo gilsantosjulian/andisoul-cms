@@ -22,6 +22,14 @@
       "min": 1,
       "max": 12
     },
+    "titleAlignment": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
+    },
     "viewAllText": {
       "type": "string",
       "default": "View all products"
@@ -29,11 +37,6 @@
     "viewAllUrl": {
       "type": "string",
       "default": "/store"
-    },
-    "cta": {
-      "type": "component",
-      "component": "common.link",
-      "repeatable": true
     }
   },
   "config": {}
